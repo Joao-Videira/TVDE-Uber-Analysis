@@ -29,12 +29,16 @@ This project focuses on a strategic analysis of real TVDE trip data collected ov
 - Imported a separate fuel transaction dataset and calculated the **average fuel cost per km** by dividing total fuel spend by total kilometers driven.
 - Applied this rate to each trip to estimate `Custo_Combustivel` and derive `Lucro_Liquido` (net profit per trip after fuel). This approach avoided data duplication issues that would arise from a direct date-based merge with multiple daily trips.
 
-### 2. Rentability by Location
+### 2. Correlation Analysis using a heatmap
+- Built a correlation heatmap between `Distância da viagem`, `Duracao_Minutos`, `Rendimento`, `Euro_Km`, and `Gorjeta`.
+- My objetive was to identifie the best correlations. 
+
+### 3. Rentability by Location
 - Filtered locations with more than 10 trips to ensure statistical relevance.
 - Ranked pickup locations by average `Euro_Km` to identify the most and least profitable origins.
 - Cross-referenced with average trip duration to identify locations that are both fast and profitable.
 
-### 3. Temporal Pattern Analysis
+### 4. Temporal Pattern Analysis
 - Built a pivot table using `Week_Day` vs `Period_of_Day` with mean `Lucro_Liquido` to identify the best combinations of day and time.
 - **Friday Afternoon** emerged as the top outlier (5.46€), likely driven by end-of-week demand peaks.
 - **Night shifts on Wednesday and Monday** showed the most consistent high returns, suggesting evening weekday shifts as the most reliable strategy.
@@ -42,34 +46,32 @@ This project focuses on a strategic analysis of real TVDE trip data collected ov
 - Analyzed average fuel cost per day of the week using daily aggregation to avoid duplication.
 - Compared number of trips, average distance, and average rentability per day to understand volume vs quality dynamics.
 
-### 4. Trip Volume vs Quality Analysis
+### 5. Trip Volume vs Quality Analysis
 - Compared number of trips per day of the week to identify demand patterns.
 - Cross-referenced trip volume with average distance and rentability to evaluate whether busier days translate into higher earnings.
 - **Thursday** has 212 trips (2nd highest) but the lowest average distance (6.39km) and rentability (4.63€), proving that volume alone does not guarantee revenue.
 - **Monday** has the fewest trips (161) but the highest average distance (8.67km) and rentability (5.70€), confirming that trip quality matters more than quantity.
 
-### 5. Correlation Analysis
-- Built a correlation heatmap between `Distância da viagem`, `Duracao_Minutos`, `Rendimento`, `Euro_Km`, and `Gorjeta`.
-- Identified a strong positive correlation (0.94) between trip distance and revenue, confirming that longer trips are significantly more profitable.
 
 ---
 
 ## 📈 Visualizations
 
-### Rentability by Day and Period
-![](graphs/Days_with_the_best_rentability.png)
+### Correlation Heatmap
+<img width="627" height="503" alt="image" src="https://github.com/user-attachments/assets/e0592f75-e543-4ebe-9a5d-01ce95e6fe59" />
+
+### Rentability by KM and Minutes
+<img width="543" height="474" alt="image" src="https://github.com/user-attachments/assets/35a174a4-ad56-4325-80b3-2d5179077e54" />
+<img width="539" height="483" alt="image" src="https://github.com/user-attachments/assets/af8d08c8-7f5c-42c0-bb14-22c2e0bcb2a8" />
 
 ### Rentability by Day and Period (Detailed)
-![](graphs/Rentability_by_Period_of_the_Day_by_Euro.png)
+<img width="973" height="628" alt="image" src="https://github.com/user-attachments/assets/02ef7441-91aa-4b1d-9156-19ea5be23154" />
 
-### Correlation Heatmap
-![](graphs/Heatmap.png)
-
-### Rentability by Location
-![](graphs/Rentability_by_KM.png)
+### Fuel Cost
+<img width="589" height="387" alt="image" src="https://github.com/user-attachments/assets/5cbd3692-e564-4934-aa03-9213a6e6150e" />
 
 ### Number of Trips vs Rentability by Day
-![](graphs/Number_of_trips_by_day.png)
+<img width="606" height="403" alt="image" src="https://github.com/user-attachments/assets/5f298860-32b3-4abb-b6a7-eb937efd1bde" />
 
 | Week_Day | distance_mean | rentability_mean |
 |---|---|---|
@@ -106,15 +108,12 @@ This project focuses on a strategic analysis of real TVDE trip data collected ov
 
 ## 🔍 Conclusions
 
-- **Thursday is the biggest finding.** No period on Thursday exceeds 4.00€ average, yet it is the 2nd busiest day with 212 trips. The data shows the trips are simply shorter and less valuable. If I were to work for a TVDE company again, Thursday would be my day off — not the weekend.
+- **Thursday is the biggest finding.**  What immediately caught my eye was Thursday: there is no period when the average exceeds €4. Despite this, it is the second-busiest day in terms of journeys. Looking at the table, we can also see that the journeys are shorter. If I were to run the company again, my day off would most likely be Thursday rather than at the weekend.
 
-- **Fuel cost savings on Thursday:** The average weekly fuel cost across the 5 working days is **18.96€**. Replacing Thursday with a day off would represent approximately **16% fuel savings**. Instead, those Thursday periods could be redistributed to underexplored slots in other days — for example, **Sunday Evening** shows surprisingly competitive numbers compared to other days.
+- **Fuel cost savings on Thursday:** The average weekly fuel consumption (here I’ve calculated using only the 5 working days because there are fewer journeys at the weekend) is €18.96, meaning that on Thursdays there was a fuel saving of around 16%. My recommendation is that Thursday needs to be reviewed, and we should try to replace those periods with other days when nobody is driving; for example, Sunday evening is quite interesting compared to the rest of the days.
 
-- **More data is needed**, particularly for weekends. Sunday Morning has no data at all, which limits conclusions for that period.
+- **More data is needed**, especially for the weekend; there is no data for Sunday morning, for example.
 
 - **Trips starting and ending in Vila Nova de Gaia are consistently good trips** — efficient, fast, and well compensated.
 
 - **The airport (Maia) is a counterintuitive case.** Despite offering longer trips, it has the lowest €/km rentability. Longer does not mean more profitable — other locations consistently outperform Maia in revenue per kilometer. Most Maia trips originate from or go to the airport, which skews the entire location's performance downward.
-
-
-
