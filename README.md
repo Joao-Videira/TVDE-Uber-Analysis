@@ -54,7 +54,7 @@ Handled missing postal codes by mapping them to locality names and filling in un
   *Thursday has 212 trips (2nd highest) but the lowest average distance (6.39km) and rentability (4.63€), proving that volume alone does not guarantee revenue.
   *Monday has the fewest trips (161) but the highest average distance (8.67km) and rentability (5.70€), confirming that trip quality matters more than quantity
 
-📈 Visualizations
+## 📈 Visualizations
 ## Correlation Heatmap
 <img width="640" height="480" alt="Heatmap" src="https://github.com/user-attachments/assets/b76d342a-784d-4d50-b69d-854bf0c069ca" />
 
@@ -68,18 +68,30 @@ Handled missing postal codes by mapping them to locality names and filling in un
 <img width="640" height="480" alt="Number of Trips by day" src="https://github.com/user-attachments/assets/dcce83a7-5961-490f-90c6-1349c591a32d" />
 <img width="278" height="262" alt="image" src="https://github.com/user-attachments/assets/57e39ed4-702d-4ca4-9d15-d216dc33e728" />
 
-💡 Business Insights
+## 💡 Business Insights
 
-*Monday and Wednesday nights are the most profitable combinations (5.05€ and 5.21€ net per trip), making them the priority shifts to maximize earnings.
+•    The most profitable periods are:
+ o    Friday afternoon, with an average of €5.46, and Wednesday evening, with €5.21.
+ o    It is worth noting that Thursday is the weakest day, with averages for all periods below €4.
+ o    Monday also stands out for having the best average.
 
-*Friday Afternoon is the single best combination (5.46€), likely driven by end-of-week demand peaks. However, Wednesday and Monday nights offer the most consistent high returns, making evening weekday shifts the most reliable strategy overall.
+•    The days on which the most fuel is used, as we can see from the fuel cost chart, are: Monday, Tuesday and Wednesday.
+•    The days on which the least fuel is used are: Sunday and Saturday, but we know these are the days when the car is driven the least.
 
-*Espinho and Matosinhos are the most rentable pickup origins (1.06€ and 1.03€/km), while Maia is the worst (0.52€/km) — long trips but poorly compensated.
+•    In terms of journeys, the days with the most journeys are Friday and Thursday.
 
-*Afternoon and Rush hour consistently yield the highest Euro/Km (0.82€ and 0.80€), making them the most efficient periods to work.
+•    Looking at the profitability graph, we can see that Espinho and Ermesinde are the areas with the highest average min/km. Maia and Matosinhos are at the bottom.
+•    In the time-based profitability graph, we can see that Vila Nova de Gaia is the most efficient, along with Avintes. On the other hand, Maia and Ermesinde are the least efficient.
 
-*Thursday is a paradox — the 2nd busiest day with 212 trips, yet the lowest rentability (4.63€ avg) and shortest average distance (6.39km). High volume does not equal high revenue; trip quality matters more than trip quantity.
+## Conclusions
+•     What immediately caught my eye was Thursday: there is no period when the average exceeds €4. Despite this, it is the second-busiest day in terms of journeys. Looking at the table, we can also see that the journeys are shorter. If I were to run the company again, my day off would most likely be Thursday rather than at the weekend.
+•    The average weekly fuel consumption (here I’ve calculated using only the 5 working days because there are fewer journeys at the weekend) is €18.96, meaning that on Thursdays there was a fuel saving of around 16%. My recommendation is that Thursday needs to be reviewed, and we should try to replace those periods with other days when nobody is driving; for example, Sunday evening is quite interesting compared to the rest of the days.
 
-*Sunday mornings show zero activity, and the weekend in general underperforms compared to weekdays in both rentability and trip distance.
+•    I need more data, especially for the weekend; there is no data for Sunday morning, for example.
 
-*After accounting for fuel costs, the net profit picture shifts significantly, reinforcing the importance of prioritizing longer, higher-value trips over maximizing trip count.
+•    Journeys starting and ending in Vila Nova de Gaia are good journeys.
+
+•    The airport is a case study; as we can see, it is where the most time is lost per journey and where there is also the lowest profitability per kilometre. In other words, it is counterintuitive: although the airport offers longer journeys, the company is losing money because other locations are more profitable. The airport is located in Maia, and most journeys from Maia are to the airport.
+
+
+
